@@ -20,7 +20,7 @@ export async function moveScreen(
   const canvas = new Canvas(1200, 675);
   const ctx = canvas.getContext('2d');
 
-  let { name, species, pokeball, gender, moves, level, shiny } = data;
+  let { name, species, pokeball, moves, level, shiny } = data;
   level || (level = 100);
 
   const gens = new Generations(Dex);
@@ -51,15 +51,6 @@ export async function moveScreen(
 
   ctx.drawImage(ball, 618, 30, 45, 45);
 
-  const male = await loadImage(
-    path.join(__dirname, '../../data/images/icons/genders/male.png'),
-  );
-  const female = await loadImage(
-    path.join(__dirname, '../../data/images/icons/genders/female.png'),
-  );
-  gender === 'M'
-    ? ctx.drawImage(male, 1100, 40)
-    : ctx.drawImage(female, 1100, 40);
 
   const Data: IconData = {};
 
